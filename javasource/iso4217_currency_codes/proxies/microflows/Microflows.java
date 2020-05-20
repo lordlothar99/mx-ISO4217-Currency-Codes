@@ -20,17 +20,22 @@ public class Microflows
 		Map<java.lang.String, Object> params = new HashMap<>();
 		Core.microflowCall("ISO4217_Currency_Codes.ACT_CurrencyCodes_Update").withParams(params).execute(context);
 	}
+	public static void aCT_DeleteAllCurrencyCodes(IContext context)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		Core.microflowCall("ISO4217_Currency_Codes.ACT_DeleteAllCurrencyCodes").withParams(params).execute(context);
+	}
 	public static java.lang.Long decimal2Integer(IContext context, java.math.BigDecimal _decimalValue)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
 		params.put("DecimalValue", _decimalValue);
 		return (java.lang.Long) Core.microflowCall("ISO4217_Currency_Codes.Decimal2Integer").withParams(params).execute(context);
 	}
-	public static iso4217_currency_codes.proxies.ISO4217_CurrencyCode findCurrencyCode(IContext context, java.lang.String _alphabeticCode)
+	public static iso4217_currency_codes.proxies.ISO4217_CurrencyCode dS_CurrencyCode_by_AlphabeticCode(IContext context, java.lang.String _alphabeticCode)
 	{
 		Map<java.lang.String, Object> params = new HashMap<>();
 		params.put("AlphabeticCode", _alphabeticCode);
-		IMendixObject result = (IMendixObject)Core.microflowCall("ISO4217_Currency_Codes.FindCurrencyCode").withParams(params).execute(context);
+		IMendixObject result = (IMendixObject)Core.microflowCall("ISO4217_Currency_Codes.DS_CurrencyCode_by_AlphabeticCode").withParams(params).execute(context);
 		return result == null ? null : iso4217_currency_codes.proxies.ISO4217_CurrencyCode.initialize(context, result);
 	}
 }
